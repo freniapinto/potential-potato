@@ -15,12 +15,12 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(value="/get-user", params= {"username"}, method= RequestMethod.GET)
+	@RequestMapping(value="/getUser", params= {"username"}, method= RequestMethod.GET)
 	public User getUser(@RequestParam("username") String username) {
 		return userService.findByUsername(username);
 	}
 	
-	@RequestMapping(value="/post-user", params= {"username","password"}, method= RequestMethod.POST)
+	@RequestMapping(value="/postUser", params= {"username","password"}, method= RequestMethod.POST)
 	public void postUser(@RequestParam("username") String username, @RequestParam("password") String password) {
 		userService.save(new User(username, password));
 	}
